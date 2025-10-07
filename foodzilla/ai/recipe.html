@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe Result</title>
+</head>
+<body>
+  <h2>Recipe for <span id="dishName"></span></h2>
+  <p>Click below to view the video recipe on YouTube:</p>
+  <a id="youtubeLink" href="#" target="_blank">Watch Recipe</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const item = params.get("item");
+    document.getElementById("dishName").textContent = item;
+
+    const query = encodeURIComponent(item + " recipe");
+    const youtubeURL = `https://www.youtube.com/results?search_query=${query}`;
+    document.getElementById("youtubeLink").href = youtubeURL;
+  </script>
+</body>
+</html>

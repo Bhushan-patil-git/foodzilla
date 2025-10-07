@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Recipe</title>
+</head>
+<body>
+  <h2>Search your recipe</h2>
+
+  <input type="text" id="searchInput" placeholder="e.g. Mango Ice Cream" />
+  <button onclick="searchRecipe()">Search</button>
+
+  <script>
+    function searchRecipe() {
+      const item = document.getElementById("searchInput").value;
+      if (item.trim() !== "") {
+        window.location.href = `recipe.html?item=${encodeURIComponent(item)}`;
+      } else {
+        alert("Please enter a dish name.");
+      }
+    }
+  </script>
+</body>
+</html>
